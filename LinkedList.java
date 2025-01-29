@@ -63,29 +63,27 @@ public class LinkedList {
         }
     }
 
-    public void insertMiddle(int data, int pos) {
-        Node newNode = new Node(data);
-        if (pos == 1) {
-            newNode.next = head;
-            head = newNode;
-        } else {
-            Node temp = head;
-            for (int i = 2; i < pos; i++) {
-                if (temp != null) {
-                    temp = temp.next;
-                } else {
-                    System.out.println("Position out of range");
-                    return;
-                }
-            }
-            if (temp != null) {
-                newNode.next = temp.next;
-                temp.next = newNode;
-            } else {
-                System.out.println("Position out of range");
-            }
+   public void insertMiddle(int data,int pos) 
+    {    
+        //Create a new node    
+        Node newNode = new Node(data);    
+       //temporary node points to head node
+        Node temp=head;
+        if(pos==1)
+        {
+newNode.next=temp;
+        head=newNode;
         }
-        System.out.println("ELEMENT INSERTED");
+        else
+        {
+        for(int i=1;i<(pos-1);i++ ) 
+        {    
+            temp = temp.next;    
+        }    
+newNode.next=temp.next;
+temp.next=newNode;
+        }
+System.out.println("Element Inserted");
     }
 
     public void displayList() {
